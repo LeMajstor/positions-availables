@@ -18,9 +18,7 @@ class CompaniesTableSeeder extends Seeder
     {
         foreach (Address::get() as $address) {
             if ($address->id %2 == 0) {
-                Company::factory([
-                    'addresses_id' => $address->id
-                ])->create();
+                Company::factory(['addresses_id' => $address->id])->create();
             }
         }
     }

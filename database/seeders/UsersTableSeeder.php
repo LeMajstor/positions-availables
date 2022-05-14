@@ -18,9 +18,7 @@ class UsersTableSeeder extends Seeder
     {
         foreach (Address::get() as $address) {
             if ($address->id %2 == 1) {
-                User::factory([
-                    'addresses_id' => $address->id
-                ])->create();
+                User::factory(['addresses_id' => $address->id])->create();
             }
         }
     }
