@@ -8,4 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class Address extends Model
 {
     use HasFactory;
+
+    public function company()
+    {
+        return $this->hasOne(Company::class);
+    }
+
+    public function user()
+    {
+        return $this->hasOne(User::class);
+    }
 }

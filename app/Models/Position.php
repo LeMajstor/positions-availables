@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Position extends Model
 {
     use HasFactory;
+
+    public function company()
+    {
+        return $this->belongsTo(Company::class);
+    }
 }
