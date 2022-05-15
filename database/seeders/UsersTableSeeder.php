@@ -5,7 +5,6 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\User;
-use App\Models\Address;
 
 class UsersTableSeeder extends Seeder
 {
@@ -16,10 +15,6 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        foreach (Address::get() as $address) {
-            if ($address->id %2 == 1) {
-                User::factory(['addresses_id' => $address->id])->create();
-            }
-        }
+        User::factory(10)->create();
     }
 }

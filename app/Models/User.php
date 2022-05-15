@@ -44,11 +44,11 @@ class User extends Authenticatable
 
     public function address() 
     {
-        return $this->belongsTo(Address::class);
+        return $this->belongsToMany(Address::class, 'addresses_users', 'addresses_id', 'users_id');
     }
 
     public function company()
     {
-        return $this->belongsToMany(Company::class, 'users_companies', 'users_id', 'companies_id');
+        return $this->belongsToMany(Company::class, 'users_companies', 'companies_id', 'users_id');
     }
 }

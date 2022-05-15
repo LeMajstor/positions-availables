@@ -15,10 +15,6 @@ return new class extends Migration
     {
         Schema::create('companies', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('addresses_id');
-            $table->foreign('addresses_id')
-                ->references('id')
-                ->on('addresses');
             $table->string('title');
             $table->longText('content');
             $table->boolean('is_active')->default(true);

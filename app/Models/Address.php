@@ -11,11 +11,11 @@ class Address extends Model
 
     public function company()
     {
-        return $this->hasOne(Company::class);
+        return $this->belongsToMany(Company::class, 'addresses_companies', 'companies_id', 'addresses_id');
     }
 
     public function user()
     {
-        return $this->hasOne(User::class);
+        return $this->belongsToMany(User::class, 'addresses_users', 'users_id', 'addresses_id');
     }
 }

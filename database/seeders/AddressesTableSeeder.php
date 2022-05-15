@@ -15,6 +15,12 @@ class AddressesTableSeeder extends Seeder
      */
     public function run()
     {
-        Address::factory(100)->create();
+        Address::factory(10)->create()->each(function($address){
+            if ($address->id %2 == 0) {
+                $address->company()->save($address);
+            } else {
+                $address->user()->save($address);
+            }
+        });
     }
 }
